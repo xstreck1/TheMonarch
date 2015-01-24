@@ -66,7 +66,7 @@ Monarch.state = {
         "Pay": 50.0
     },
     "Monarch": {
-        "Name": "Name",
+        "Name": "Bill Door",
         "Age": 16,
         "Health": 100,
         "Partners": 0,

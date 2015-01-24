@@ -69,6 +69,9 @@ Monarch.choice = function (event, choice) {
         else if (effect.Operator === "/") {
             Monarch.state[effect.Unit][effect.Variable] /= effect.Value;
         }
+        else if (effect.Operator === "=") {
+            Monarch.state[effect.Unit][effect.Variable] = effect.Value;
+        }
     }
 
     w2popup.close();

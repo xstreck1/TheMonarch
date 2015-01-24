@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 $(function () {
     var pstyle = 'background-color: #F5F6F7; border: 1px solid #dfdfdf; padding: 5px;';
 
@@ -93,7 +92,7 @@ Monarch.loadPopup = function (event_index) {
     var data = Monarch.events[event_index];
     $("#event_title").html(data.Title)
     $("#event_picture").attr("src", "./images/" + data.ID + ".jpg");
-    $("#event_decription").html(data.Description);
+    $("#event_decription").html(data.Description.replace("#MONARCH", Monarch.state.Monarch.Name));
 
     $("#popup_buttons").html("");
     for (var i = 0; i < data.Decisions.length; i++) {
@@ -107,16 +106,6 @@ Monarch.loadPopup = function (event_index) {
                 '</button><br />'
                 );
     }
-
-    /* 
-     
-     <button class="btn choice_button" >Choice 2</button><br />
-     <button class="btn choice_button" >Choice 3</button>*/
-    /*$("button").click(function () {
-     alert($(this).attr("value"));
-     Monarch.applyChanges(data.Decisions[index].Effects);
-     w2popup.close();
-     });*/
 
     $('#popup1').w2popup({showClose: false});
 };
