@@ -4,24 +4,72 @@
  * and open the template in the editor.
  */
 
+Monarch.askName = function () {
+    w2popup.open({
+        title: 'Welcome, sire!',
+        body: '<div style="text-align: center;">\n\
+            <p>Since you came of age, you are becoming the supreme leader of our glorious counry, as by your birthright</p>\n\
+            <p>Please tell your subjects how you require them to address you.</p>\n\
+            <p><input type="text" id="input_name" name="name" value="The Monarch"></p>\n\
+            <p>Your might is infinite, as is your wisdom.</p>\n\
+            <p>Would you like our country to be known under a different name?</p>\n\
+            <input type="text" id="input_country" name="name" value="The Monarchy"></div>',
+        buttons: '<button class="btn" id="name_ok" >OK</button> ',
+        width: "500pt",
+        height: "305pt",
+        modal: false,
+        showClose: false,
+        showMax: false
+    });
+    
+    $(".w2ui-msg-buttons").css("height", "30pt");
+
+    $("#name_ok").click(function () {
+        Monarch.startGame();
+    });
+};
+
+Monarch.startGame = function () {
+    Monarch.state.Monarch.Name = $("#input_name").val()
+    Monarch.state.Land.Country = $("#input_country").val();
+    w2popup.close();
+
+    $("#text_panel").append("<p>Welcome," + Monarch.state.Monarch.Name + " of " + Monarch.state.Land.Country + "</p><p>Please, tell us, what do we do now?</p>");
+
+    w2ui['layout'].content('top', '<span style="float: left">LEADER: ' +
+            Monarch.state.Monarch.Name +
+            '</span><span style="float: cetner">AGE: <span id="age_span">' +
+            Monarch.state.Monarch.Age +
+            '</span></span><span style="float: right">COUNTRY: ' +
+            Monarch.state.Land.Country +
+            '</span>'
+            );
+};
+
 $(function () {
+    Monarch.askName();
+
+    // MERGE DATA
+    Monarch.events = $.merge(Monarch.events, Monarch.events2);
+
     var pstyle = 'background-color: #F5F6F7; border: 1px solid #dfdfdf; padding: 5px;';
 
     // Create layout
     $('#layout').w2layout({
         name: 'layout',
         panels: [
-            {type: 'top', size: "30pt", resizable: true, style: pstyle + "font-size: 12pt; text-align: center", content: 'A NEW YEAR HAS COME'},
-            {type: 'left', size: "300pt", resizable: true, style: pstyle, content: 'left'},
-            {type: 'main', style: pstyle, content: 'main'},
+            {type: 'top', size: "40pt", resizable: true, style: pstyle + "font-size: 15pt; text-align: center", content: 'The Monarch'},
+            {type: 'left', size: "200pt", resizable: true, style: pstyle, content: 'left'},
+            {type: 'main', style: pstyle, content: '<div id="text_panel"></div>'},
             {type: 'right', size: "300pt", resizable: true, style: pstyle, content: 'right'},
-            {type: 'bottom', size: 50, resizable: true, style: pstyle, content: 'bottom'}
+            {type: 'bottom', size: "40pt", resizable: true, style: pstyle, content: 'bottom'}
         ]
     });
-
+    w2ui['layout'].content('bottom', '<div style="text-align: right"><button class="btn" id="end_turn_button" >END TURN</button></div>');
     Monarch.loadData();
-    var event_index = Monarch.selectEvent();
-    Monarch.loadPopup(event_index);
+    $("#end_turn_button").click(function () {
+        Monarch.endTurn();
+    });
 });
 
 Monarch.destroy = function () {
@@ -60,6 +108,13 @@ Monarch.loadData = function () {
         ;
     };
     getStats("Monarch");
+    stats.push(
+            {
+                recid: stats.length + 1,
+                status: "",
+                value: ""
+            }
+    );
     getStats("Land");
 
     // Create the faction Grid
@@ -77,8 +132,8 @@ Monarch.loadData = function () {
     $('').w2grid({
         name: 'values_grid',
         columns: [
-            {field: 'status', caption: 'Status', size: '150pt', sortable: false},
-            {field: 'value', caption: 'Value', size: '150pt', sortable: false}
+            {field: 'status', caption: '', size: '100pt', sortable: false},
+            {field: 'value', caption: 'Value', size: '100pt', sortable: false}
         ],
         records: stats
     });
@@ -92,7 +147,7 @@ Monarch.loadPopup = function (event_index) {
     var data = Monarch.events[event_index];
     $("#event_title").html(data.Title)
     $("#event_picture").attr("src", "./images/" + data.ID + ".jpg");
-    $("#event_decription").html(data.Description.replace("#MONARCH", Monarch.state.Monarch.Name));
+    $("#event_decription").html(data.Description.replace(/#MONARCH/g, Monarch.state.Monarch.Name));
 
     $("#popup_buttons").html("");
     for (var i = 0; i < data.Decisions.length; i++) {
@@ -102,10 +157,12 @@ Monarch.loadPopup = function (event_index) {
                 ", " +
                 i +
                 ')"> ' +
-                data.Decisions[i].Option +
+                data.Decisions[i].Option.replace(/#MONARCH/g, Monarch.state.Monarch.Name) +
                 '</button><br />'
                 );
     }
 
     $('#popup1').w2popup({showClose: false});
+    
+    $(".w2ui-msg-buttons").css("height", (30 * data.Decisions.length) + "pt");
 };

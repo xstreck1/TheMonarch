@@ -2123,7 +2123,7 @@ button.btn-red.clicked {
   overflow: auto;
 }
 .w2ui-popup .w2ui-msg-buttons {
-  padding: 12px;
+  padding: 6px;
   border-radius: 0px 0px 6px 6px;
   border-top: 1px solid #d5d8d8;
   background-color: #f1f1f1;
