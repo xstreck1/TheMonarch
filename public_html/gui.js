@@ -21,12 +21,13 @@ $(function () {
     });
 
     Monarch.loadData();
-    Monarch.loadPopup(0);  
+    var event_index = Monarch.selectEvent();
+    Monarch.loadPopup(event_index);
 });
 
-Monarch.destroy = function() {
-     w2ui['factions_grid'].destroy();
-     w2ui['values_grid'].destroy();
+Monarch.destroy = function () {
+    w2ui['factions_grid'].destroy();
+    w2ui['values_grid'].destroy();
 };
 
 Monarch.loadData = function () {
@@ -56,12 +57,13 @@ Monarch.loadData = function () {
                         value: Monarch.state[type][value]
                     }
             );
-        };
+        }
+        ;
     };
     getStats("Monarch");
     getStats("Land");
-    
-        // Create the faction Grid
+
+    // Create the faction Grid
     $('').w2grid({
         name: 'factions_grid',
         columns: [
@@ -87,14 +89,14 @@ Monarch.loadData = function () {
     w2ui['layout'].content('left', w2ui['values_grid']);
 };
 
-Monarch.loadPopup = function(event_index) {
+Monarch.loadPopup = function (event_index) {
     var data = Monarch.events[event_index];
     $("#event_title").html(data.Title)
     $("#event_picture").attr("src", "./images/" + data.ID + ".jpg");
     $("#event_decription").html(data.Description);
-    
+
     $("#popup_buttons").html("");
-    for ( var i = 0; i < data.Decisions.length; i++) {
+    for (var i = 0; i < data.Decisions.length; i++) {
         $("#popup_buttons").append(
                 '<button class="btn choice_button" onclick="Monarch.choice(' +
                 event_index +
@@ -105,16 +107,16 @@ Monarch.loadPopup = function(event_index) {
                 '</button><br />'
                 );
     }
-    
+
     /* 
-                
-                <button class="btn choice_button" >Choice 2</button><br />
-                <button class="btn choice_button" >Choice 3</button>*/
+     
+     <button class="btn choice_button" >Choice 2</button><br />
+     <button class="btn choice_button" >Choice 3</button>*/
     /*$("button").click(function () {
-        alert($(this).attr("value"));
-        Monarch.applyChanges(data.Decisions[index].Effects);
-        w2popup.close();
-    });*/
-    
-    $('#popup1').w2popup({showClose: false });
+     alert($(this).attr("value"));
+     Monarch.applyChanges(data.Decisions[index].Effects);
+     w2popup.close();
+     });*/
+
+    $('#popup1').w2popup({showClose: false});
 };
