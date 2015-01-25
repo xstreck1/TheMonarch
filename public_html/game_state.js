@@ -66,7 +66,7 @@ Monarch.state = {
         "Pay": 1.0
     },
     "Monarch": {
-        "Name": "Bill Door",
+        "Name": "The Monarch 1",
         "Age": 30,
         "Health": 100,
         "Partners": 2,
@@ -75,7 +75,7 @@ Monarch.state = {
     },
     "Land": {
         "Balance": 1000,
-        "Country": "Fuckthisshitstan",
+        "Country": "The Monarchy 1",
         "Diplomacy": 10,
         "Colonies": 3,
         "EventChain": 0

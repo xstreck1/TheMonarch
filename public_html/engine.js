@@ -52,7 +52,7 @@ Monarch.selectEvent = function () {
     return usable_events[chosen];
 };
 
-Monarch.printChange = function(Unit, Variable, direction) {
+Monarch.printChange = function (Unit, Variable, direction) {
     var change = direction ? "up" : "down";
     if (Monarch.Factions.indexOf(Unit) !== -1) {
         var message = "The " + Variable + " of " + Unit + " went " + change;
@@ -60,14 +60,14 @@ Monarch.printChange = function(Unit, Variable, direction) {
         var message = "Your " + Unit + " went " + change;
     } else if (Monarch.Land.indexOf(Unit) !== -1) {
         var message = "The country's " + Unit + " went " + change;
-    } else 
+    } else
         return;
     $("#text_panel").append(message + "<br/>");
 }
 
 Monarch.choice = function (event, choice) {
     Monarch.choiceMade();
-    
+
     var choice_var = Monarch.events[event].Decisions[choice];
 
     $("#text_panel").append("Based on your decision: <br/>");
@@ -95,6 +95,9 @@ Monarch.choice = function (event, choice) {
     }
 
     w2popup.close();
+    for (var i = 0; i < Monarch.Factions.length; i++) {
+        Monarch.boundValues(Monarch.state[Monarch.Factions[i]]);
+    }
     Monarch.destroy();
     Monarch.loadData();
 };
@@ -105,11 +108,46 @@ Monarch.endTurn = function () {
     Monarch.loadPopup(event_index);
 };
 
-Monarch.choiceMade = function() {
+Monarch.boundValues = function (state_var) {
+    state_var.Mood = Math.min(Math.max(state_var.Mood, 0), 100);
+    state_var.Count = Math.max(state_var.Mood, 0);
+    state_var.Gain = Math.max(state_var.Mood, 0);
+    state_var.Pay = Math.max(state_var.Pay, 0);
+};
+
+Monarch.choiceMade = function () {
     $("#age_span").html(++Monarch.state.Monarch.Age);
     $("#text_panel").html("<p>You are a year older, sire.</p>");
+
+    for (var i = 0; i < Monarch.Factions.length; i++) {
+        if ($("#fund_" + Monarch.Factions[i]).is(":checked")) {
+            $("#fund_" + Monarch.Factions[i]).attr("checked", false);
+
+
+            if (Monarch.Factions[i] === "Mafia") {
+                $("#text_panel").append("You fought against the Mafia, they hate you now.</br>");
+                Monarch.state[Monarch.Factions[i]].Count /= 2;
+                Monarch.state[Monarch.Factions[i]].Mood -= 10;
+            }
+            else {
+                $("#text_panel").append("You funded " + Monarch.Factions[i] + ", they thank you.</br>");
+                Monarch.state[Monarch.Factions[i]].Count *= 1.25;
+                Monarch.state[Monarch.Factions[i]].Mood += 10;
+            }
+            Monarch.state[Monarch.Factions[i]].Count = Math.floor(Monarch.state[Monarch.Factions[i]].Count);
+
+            Monarch.state[Monarch.Factions[i]].Pay /= 2;
+
+            Monarch.state.Land.Balance -= 500;
+        }
+    }
+
     var money_change = Monarch.accountMoney();
-    $("#text_panel").append("The yearly accounting is: " + money_change + "<br/>");
+    var interest = Monarch.state.Land.Balance * 0.05;
+    money_change += interest;
+    var money_message = "<p>The yearly interest is " + interest + ". Your ballance has changed in total by " + money_change + ".</p>";
+    Monarch.state.Land.Balance += money_change;
+    $("#text_panel").append(money_message);
 };
 
 Monarch.accountMoney = function () {

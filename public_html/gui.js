@@ -46,6 +46,24 @@ Monarch.startGame = function () {
             );
 };
 
+Monarch.addButtons = function() {
+    w2ui['layout'].content('bottom', '<div id="controls"></div>');
+    
+    $("#controls").append('<div id="fundings" style="text-align: center">SPEND 500 FROM YOUR YEARLY BUDGET ON:<br/></div>');
+    
+    for (var i = 0; i < Monarch.Factions.length; i++) {
+        $('<input />', { type: 'checkbox', id: 'fund_' + Monarch.Factions[i], value: "fund_" + Monarch.Factions[i]}).appendTo($("#controls"));
+        $("#controls").append(Monarch.Factions[i]);
+    }
+    
+    $("#controls").append('<div style="text-align: right"><button class="btn" id="end_turn_button" >END TURN</button></div>');
+    
+    Monarch.loadData();
+    $("#end_turn_button").click(function () {
+        Monarch.endTurn();
+    });
+};
+
 $(function () {
     Monarch.askName();
 
@@ -62,14 +80,11 @@ $(function () {
             {type: 'left', size: "200pt", resizable: true, style: pstyle, content: 'left'},
             {type: 'main', style: pstyle, content: '<div id="text_panel"></div>'},
             {type: 'right', size: "300pt", resizable: true, style: pstyle, content: 'right'},
-            {type: 'bottom', size: "40pt", resizable: true, style: pstyle, content: 'bottom'}
+            {type: 'bottom', size: "80pt", resizable: true, style: pstyle, content: 'bottom'}
         ]
     });
-    w2ui['layout'].content('bottom', '<div style="text-align: right"><button class="btn" id="end_turn_button" >END TURN</button></div>');
-    Monarch.loadData();
-    $("#end_turn_button").click(function () {
-        Monarch.endTurn();
-    });
+    
+    Monarch.addButtons();
 });
 
 Monarch.destroy = function () {

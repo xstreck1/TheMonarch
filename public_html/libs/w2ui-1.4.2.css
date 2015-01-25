@@ -2033,11 +2033,11 @@ button.btn-red.clicked {
 .w2ui-popup .w2ui-msg-title {
   padding: 6px;
   border-radius: 6px 6px 0px 0px;
-  background-image: -webkit-linear-gradient(#008800, #CCCCCC);
-  background-image: -moz-linear-gradient(#008800, #CCCCCC);
-  background-image: -ms-linear-gradient(#008800, #CCCCCC);
-  background-image: -o-linear-gradient(#008800, #CCCCCC);
-  background-image: linear-gradient(#008800, #CCCCCC);
+  background-image: -webkit-linear-gradient(#BBBBBB, #DDDDDD);
+  background-image: -moz-linear-gradient(#BBBBBB, #DDDDDD);
+  background-image: -ms-linear-gradient(#BBBBBB, #DDDDDD);
+  background-image: -o-linear-gradient(#BBBBBB, #DDDDDD);
+  background-image: linear-gradient(#BBBBBB, #DDDDDD);
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffececec', endColorstr='#ffdfdfdf', GradientType=0);
   border-bottom: 2px solid #bfbfbf;
   position: absolute;
