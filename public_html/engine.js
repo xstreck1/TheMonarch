@@ -49,6 +49,10 @@ Monarch.selectEvent = function () {
     }
 
     var chosen = Math.floor(Math.random() * usable_events.length);
+    var events_ids = usable_events.map(function (event) {
+        return Monarch.events[event].ID;
+    });
+    console.log("usable events " + events_ids.join(", "));
     return usable_events[chosen];
 };
 
@@ -98,20 +102,31 @@ Monarch.choice = function (event, choice) {
     for (var i = 0; i < Monarch.Factions.length; i++) {
         Monarch.boundValues(Monarch.state[Monarch.Factions[i]]);
     }
+    Monarch.state.Land.Colonies = Math.max(Monarch.state.Land.Colonies, 0);
     Monarch.destroy();
     Monarch.loadData();
 
+    if (Monarch.state.Monarch.Age > 81) {
+        Monarch.state.Monarch.GameOver = 7;
+    }
     if (Monarch.state.Monarch.GameOver > 0) {
+        var score = (Monarch.state.Land.Balance / 1000) + Monarch.state.Monarch.GameOver * 10 + Monarch.state.Land.Diplomacy + Monarch.state.Land.Colonies * 2;
+        for (var i = 0; i < Monarch.Factions.length; i++) {
+            score += (Monarch.state[Monarch.Factions[i]].Mood + Monarch.state[Monarch.Factions[i]].Count) / 10;
+        }
         w2popup.open({
             title: Monarch.GameOverCauses[Monarch.state.Monarch.GameOver],
-            body: '<div class="w2ui-centered">' 
-                    + Monarch.GameOverMessages[Monarch.state.Monarch.GameOver] 
-                    + '</div>'
-                    + '<img src="images/death_' 
-                    + Monarch.state.Monarch.GameOver 
-                    + '.jpg" alt="death illustration" />',
-            width: 500,
-            height: 300,
+            body: '<div style="text-align: center" >'
+                    + '<br/><img src="images/death_'
+                    + Monarch.state.Monarch.GameOver
+                    + '.jpg" alt="death illustration" /><br/><br /> '
+                    + Monarch.GameOverMessages[Monarch.state.Monarch.GameOver].replace(/#MONARCH/g, Monarch.state.Monarch.Name) 
+                    + '<h2>YOUR SCORE IS: '
+                    + Math.floor(score)
+                    + '</h2>'
+                    + '</div>',
+            width: "600pt",
+            height: "400pt",
             overflow: 'hidden',
             color: '#333',
             speed: '0.3',
@@ -125,7 +140,6 @@ Monarch.choice = function (event, choice) {
 };
 
 Monarch.endTurn = function () {
-    console.log("end turn");
     var event_index = Monarch.selectEvent();
     Monarch.loadPopup(event_index);
 };
@@ -158,18 +172,18 @@ Monarch.choiceMade = function () {
             }
             Monarch.state[Monarch.Factions[i]].Count = Math.floor(Monarch.state[Monarch.Factions[i]].Count);
 
-            Monarch.state[Monarch.Factions[i]].Pay /= 2;
+            Monarch.state[Monarch.Factions[i]].Pay /= 1.5;
 
             Monarch.state.Land.Balance -= 500;
         }
+        Monarch.state[Monarch.Factions[i]].Mood -= 2;
     }
 
     var money_change = Monarch.accountMoney();
     var interest = Math.round(Monarch.state.Land.Balance / 100) * 5;
-    money_change += interest;
     var money_message = "<p>The yearly interest is " + interest
-            + ". Your ballance has changed in total by " + money_change + ".</p>";
-    Monarch.state.Land.Balance += money_change;
+            + ". The public budget was " + money_change + ".</p>";
+    Monarch.state.Land.Balance += money_change + interest;
     $("#text_panel").append(money_message);
 };
 

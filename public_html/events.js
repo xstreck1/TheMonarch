@@ -73,7 +73,7 @@ Monarch.events = [
                 ]
             },
             {
-                "Option": "They where in the right! Pledge alleigance to revolutionaries.",
+                "Option": "They where in the right! Pledge alligance to revolutionaries.",
                 "Effects": [
                                         {
                         "Unit" : "Militarists",
@@ -95,7 +95,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "-",
                         "Value": 15
                     },
@@ -120,11 +120,11 @@ Monarch.events = [
                 ]
             },
             {
-                "Option": "This could end in desaster. Try to negotiate.",
+                "Option": "This could end in disaster. Try to negotiate.",
                 "Effects": [
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "+",
                         "Value": 15
                     },
@@ -135,14 +135,14 @@ Monarch.events = [
                         "Value": 15
                     },
                     {
-			"Unit" : "Mood",
-                        "Variable": "Militarists",
+			"Unit" : "Militarists",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 15
                     },
                     {
-			"Unit" : "Mood",
-                        "Variable": "Nobles",
+			"Unit" : "Nobles",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 10
                     },
@@ -206,7 +206,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "+",
                         "Value": 5
                     },
@@ -247,7 +247,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "-",
                         "Value": 15
                     },
@@ -305,7 +305,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "-",
                         "Value": 10
                     },
@@ -334,7 +334,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "+",
                         "Value": 5
                     },
@@ -380,7 +380,7 @@ Monarch.events = [
                 "Effects": [
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "-",
                         "Value": 5
                     },
@@ -409,7 +409,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "-",
                         "Value": 5
                     },
@@ -610,7 +610,7 @@ Monarch.events = [
                 "Effects": [
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "+",
                         "Value": 15
                     },
@@ -685,7 +685,7 @@ Monarch.events = [
                 "Effects": [
                     {
 			"Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "+",
                         "Value": 15
                     },
@@ -767,12 +767,12 @@ Monarch.events = [
     {
         "ID": 9,
         "Title": "Our army meets the enemy army.",
-        "Description": "Honourable #MONARCH, our army is to meet the enemy in open battle. How do we engage?",
+        "Description": "Honourable #MONARCH, our army is to meet the enemy in open battle. How do we attack?",
         "FunFact": "fun_fact",
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": "<",
                 "Value": 36
             }
@@ -976,7 +976,7 @@ Monarch.events = [
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             },
@@ -1016,7 +1016,7 @@ Monarch.events = [
                 "Effects": [
                     {
                         "Unit" : "Academics",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "+",
                         "Value": 5
                     },
@@ -1039,7 +1039,7 @@ Monarch.events = [
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -1050,7 +1050,7 @@ Monarch.events = [
                 "Effects": [
                     {
                         "Unit" : "Academics",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 10
                     },
@@ -1067,13 +1067,13 @@ Monarch.events = [
                 "Effects": [
                     {
                         "Unit" : "Nobles",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "+",
                         "Value": 5
                     },
                     {
 			"Unit" : "Clergy",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "+",
                         "Value": 5
                     }
@@ -1084,13 +1084,13 @@ Monarch.events = [
                 "Effects": [
                     {
                         "Unit" : "Workers",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "+",
                         "Value": 5
                     },
                     {
 			"Unit" : "Bureaucrats",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "+",
                         "Value": 5
                     }
@@ -1107,7 +1107,7 @@ Monarch.events = [
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -1118,7 +1118,7 @@ Monarch.events = [
                 "Effects": [
                     {
                         "Unit" : "Mafia",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 15
                     },
@@ -1135,7 +1135,7 @@ Monarch.events = [
                 "Effects": [
                     {
                         "Unit" : "Mafia",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 15
                     },
@@ -1152,7 +1152,7 @@ Monarch.events = [
                 "Effects": [
                     {
                         "Unit" : "Mafia",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "+",
                         "Value": 15
                     },
@@ -1175,7 +1175,7 @@ Monarch.events = [
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             },
@@ -1232,7 +1232,7 @@ Monarch.events = [
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -1249,7 +1249,7 @@ Monarch.events = [
                     },
                     {
                         "Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "-",
                         "Value": 5
                     }
@@ -1266,7 +1266,7 @@ Monarch.events = [
                     },
                     {
                         "Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "-",
                         "Value": 10
                     },
@@ -1279,7 +1279,7 @@ Monarch.events = [
                 ]
             },
             {
-                "Option": "Have the General procecuted.",
+                "Option": "Have the General prosecuted.",
                 "Effects": [
                     {
                         "Unit" : "Militarists",
@@ -1289,7 +1289,7 @@ Monarch.events = [
                     },
                     {
                         "Unit" : "Land",
-                        "Variable": "Deplomacy",
+                        "Variable": "Diplomacy",
                         "Operator": "-",
                         "Value": 5
                     },
@@ -1416,7 +1416,7 @@ Monarch.events = [
                 ]
             },
             {
-                "Option": "Wage a war on corruption, oust anyone you don't trust.",
+                "Option": "WAge a war on corruption, oust anyone you don't trust.",
                 "Effects": [
                     {
 			"Unit" : "Militarists",
@@ -1495,7 +1495,7 @@ Monarch.events = [
     {
 	"ID": 21,
         "Title": "Market back on the climb",
-        "Description": "The Market has finally stabalized. The streets have been dangerous for the past years, but things are finally looking up again.",
+        "Description": "The Market has finally stabilized. The streets have been dangerous for the past years, but things are finally looking up again.",
         "FunFact": "fun_fact",
         "Conditions": [
             {
@@ -1608,62 +1608,62 @@ Monarch.events = [
                 "Effects": [
                     {
 			"Unit" : "Militarists",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     },
                     {
 			"Unit" : "Workers",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     },
                     {
 			"Unit" : "Farmers",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     },
                     {
 			"Unit" : "Merchants",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     },
                     {
 			"Unit" : "Clergy",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     }
                     ,
                     {
 			"Unit" : "Nobles",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     },
                     {
 			"Unit" : "Academics",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     },
                     {
 			"Unit" : "Bureaucrats",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     },
                     {
 			"Unit" : "Servants",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
                     },
                     {
 			"Unit" : "Mafia",
-                        "Variable": "mood",
+                        "Variable": "Mood",
                         "Operator": "+",
                         "Value": 15
                     },
@@ -1774,7 +1774,7 @@ Monarch.events = [
     {
 	"ID": 23,
         "Title": "Excentric Gangster Couple",
-        "Description": "For the thrid time a two gangsters, a man and a woman, managed to rob a bank and evade the police, inguring several officers in the progress.",
+        "Description": "For the thrid time a two gangsters, a man and a woman, manAged to rob a bank and evade the police, inguring several officers in the progress.",
         "FunFact": "fun_fact",
         "Conditions": [
             {
@@ -2140,12 +2140,12 @@ Monarch.events = [
     {
 	"ID": 30,
         "Title": "Psychic Warfare",
-        "Description": "Great #MONARCH, one of your Generals has requested funding, in order to research psychic warfare. Walking through walls would give us a definite advantage in Battle, he says.",
+        "Description": "Great #MONARCH, one of your Generals has requested funding, in order to research psychic warfare. Walking through walls would give us a definite advantAge in Battle, he says.",
         "FunFact": "fun_fact",
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -2219,7 +2219,7 @@ Monarch.events = [
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -2335,7 +2335,7 @@ Monarch.events = [
                         "Value": 10
                     },
                     {
-                        "Unit" : "Nobels",
+                        "Unit" : "Nobles",
                         "Variable": "Mood",
                         "Operator": "-",
                         "Value": 10
@@ -2377,7 +2377,7 @@ Monarch.events = [
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -2475,7 +2475,7 @@ Monarch.events = [
                         "Value": 5
                     },
                     {
-                        "Unit" : "Nobels",
+                        "Unit" : "Nobles",
                         "Variable": "Mood",
                         "Operator": "-",
                         "Value": 5
@@ -2517,7 +2517,7 @@ Monarch.events = [
         "Conditions": [
             {
                 "Unit" : "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }

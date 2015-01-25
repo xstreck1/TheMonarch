@@ -7,7 +7,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 10
             }
@@ -17,10 +17,17 @@ Monarch.events2 = [
                 "Option": "Execute the foolish officers still alive!",
                 "Effects": [
                     {
-                        "Unit": "Land",
-                        "Variable": "money",
-                        "Operator": "+",
+                        "Unit": "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "-",
                         "Value": 20
+                    }
+                    ,
+                    {
+                        "Unit": "Nobles",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 5
                     }
                 ]
             },
@@ -29,20 +36,48 @@ Monarch.events2 = [
                 "Effects": [
                     {
                         "Unit": "Land",
-                        "Variable": "money",
-                        "Operator": "+",
-                        "Value": 20
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 2000
+                    }
+                    ,
+                    {
+                        "Unit": "Militarists",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 500
                     }
                 ]
             },
             {
-                "Option": "Send appologies to the deceased families and negotiate with our enemy.",
+                "Option": "Send apologies to the deceased families and negotiate with our enemy.",
                 "Effects": [
                     {
                         "Unit": "Land",
-                        "Variable": "money",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 600
+                    }
+                    ,
+                    {
+                        "Unit": "Land",
+                        "Variable": "Diplomacy",
                         "Operator": "+",
                         "Value": 20
+                    }
+                    ,
+                    {
+                        "Unit": "Workers",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 10
+                    }
+                    ,
+                    {
+                        "Unit": "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 10
                     }
                 ]
             }
@@ -57,7 +92,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 24
             }
@@ -818,7 +853,7 @@ Monarch.events2 = [
     {
         "ID": 204,
         "Title": "The Dark Continent is ripe for the taking.",
-        "Description": " The southern continent is a wild, primitive and rich land. The benefits will serve us for centuries. But we must be quick, as the other major powers are already claiming their shares. Shall we colonize these savage lands?",
+        "Description": " The southern continent is a wild, primitive and rich land. The benefits will serve us for centuries. But we must be quick, as the other major powers are already claiming their shares. Shall we colonize these savAge lands?",
         "FunFact": "fun_fact",
         "Conditions": [
             {
@@ -909,7 +944,7 @@ Monarch.events2 = [
                 ]
             },
             {
-                "Option": "Stay clear of the other powers, but grab every piece of savage land!",
+                "Option": "Stay clear of the other powers, but grab every piece of savAge land!",
                 "Effects": [
                     {
                         "Unit": "Land",
@@ -1335,7 +1370,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 68
             }
@@ -1343,7 +1378,7 @@ Monarch.events2 = [
             {
                 "Unit": "Land",
                 "Variable": "EventChain",
-                "Operator": "==",
+                "Operator": "<",
                 "Value": 3
             }
         ],
@@ -1567,20 +1602,20 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
             ,
             {
-                "Unit": "Militarist",
+                "Unit": "Militarists",
                 "Variable": "Mood",
                 "Operator": "<",
-                "Value": 30
+                "Value": 50
             }
             ,
             {
-                "Unit": "Militarist",
+                "Unit": "Militarists",
                 "Variable": "Count",
                 "Operator": ">",
                 "Value": 100
@@ -1591,7 +1626,7 @@ Monarch.events2 = [
                 "Option": "Succumb to Fascists. There is no hope!",
                 "Effects": [
                     {
-                        "Unit": "Militarist",
+                        "Unit": "Militarists",
                         "Variable": "Count",
                         "Operator": "+",
                         "Value": 1000
@@ -1610,7 +1645,7 @@ Monarch.events2 = [
                 "Option": "Plea for help from the masses of my nation. They must love their King!",
                 "Effects": [
                     {
-                        "Unit": "Militarist",
+                        "Unit": "Militarists",
                         "Variable": "Count",
                         "Operator": "-",
                         "Value": 100
@@ -1681,7 +1716,7 @@ Monarch.events2 = [
                         "Unit": "Nobles",
                         "Variable": "Count",
                         "Operator": "-",
-                        "Value": 100
+                        "Value": 5
                     }
                     ,
                     {
@@ -1710,7 +1745,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -1719,14 +1754,14 @@ Monarch.events2 = [
                 "Unit": "Farmers",
                 "Variable": "Mood",
                 "Operator": "<",
-                "Value": 40
+                "Value": 50
             }
             ,
             {
                 "Unit": "Workers",
                 "Variable": "Mood",
                 "Operator": "<",
-                "Value": 40
+                "Value": 50
             }
             ,
             {
@@ -1798,7 +1833,7 @@ Monarch.events2 = [
                         "Unit": "Nobles",
                         "Variable": "Count",
                         "Operator": "+",
-                        "Value": 100
+                        "Value": 15
                     }
                     ,
                     {
@@ -1887,7 +1922,7 @@ Monarch.events2 = [
                         "Unit": "Nobles",
                         "Variable": "Count",
                         "Operator": "-",
-                        "Value": 100
+                        "Value": 5
                     }
                     ,
                     {
@@ -1918,25 +1953,10 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 40
             }
-            ,
-            {
-                "Unit": "Academics",
-                "Variable": "Mood",
-                "Operator": ">",
-                "Value": 60
-            }
-            ,
-            {
-                "Unit": "Land",
-                "Variable": "Diplomacy",
-                "Operator": ">",
-                "Value": 60
-            }
-
         ],
         "Decisions": [
             {
@@ -2068,7 +2088,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 500
+                        "Value": 1500
                     }
 
                 ]
@@ -2079,12 +2099,12 @@ Monarch.events2 = [
     {
         "ID": 210,
         "Title": "Public Welfare drains the treasury",
-        "Description": "Year after year, your generous side has cost the treasure huge amounts of money. Soon it will be empty. What do we do?",
+        "Description": "Year after year, your generous side has cost the treasure huge amounts of Balance. Soon it will be empty. What do we do?",
         "FunFact": "fun_fact",
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 24
             }
@@ -2093,7 +2113,7 @@ Monarch.events2 = [
                 "Unit": "Land",
                 "Variable": "Balance",
                 "Operator": "<",
-                "Value": 200
+                "Value": 2500
             }
 
         ],
@@ -2293,7 +2313,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -2321,7 +2341,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 200
+                        "Value": 4000
                     }
                     , {
                         "Unit": "Land",
@@ -2406,19 +2426,19 @@ Monarch.events2 = [
     {
         "ID": 220,
         "Title": "Choose Side to support in foreign civil war.",
-        "Description": "A neighbouring country is in turmoil and engaged in civil war. If we support one side and enable it to win the war, future relations can profit us.",
+        "Description": "A neighbouring country is in turmoil and engAged in civil war. If we support one side and enable it to win the war, future relations can profit us.",
         "FunFact": "fun_fact",
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
             ,
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": "<",
                 "Value": 50
             }
@@ -2439,7 +2459,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 200
+                        "Value": 2500
                     }
                     ,
                     {
@@ -2485,7 +2505,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 200
+                        "Value": 2500
                     }
                     ,
                 ]
@@ -2508,12 +2528,12 @@ Monarch.events2 = [
     {
         "ID": 221,
         "Title": "Rumors of Assassins.",
-        "Description": "Several of our agents report, that a alliance of political parties are preparing your assassination. We should act before they can strike. Your orders?",
+        "Description": "Several of our Agents report, that a alliance of political parties are preparing your assassination. We should act before they can strike. Your orders?",
         "FunFact": "fun_fact",
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 24
             }
@@ -2522,28 +2542,28 @@ Monarch.events2 = [
                 "Unit": "Clergy",
                 "Variable": "Mood",
                 "Operator": "<",
-                "Value": 60
+                "Value": 80
             }
             ,
             {
                 "Unit": "Academics",
                 "Variable": "Mood",
                 "Operator": "<",
-                "Value": 60
+                "Value": 80
             }
             ,
             {
                 "Unit": "Merchants",
                 "Variable": "Mood",
                 "Operator": "<",
-                "Value": 60
+                "Value": 80
             }
             ,
             {
                 "Unit": "Nobles",
                 "Variable": "Mood",
                 "Operator": "<",
-                "Value": 60
+                "Value": 80
             }
          ,
         ],
@@ -2583,7 +2603,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 200
+                        "Value": 2500
                     }
                     ,
                     {
@@ -2634,7 +2654,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 500
+                        "Value": 3000
                     }
                     ,
                     {
@@ -2701,12 +2721,12 @@ Monarch.events2 = [
     {
         "ID": 222,
         "Title": "The State in debt",
-        "Description": "Several of our agents report, that a alliance of political parties are preparing your assassination. We should act before they can strike. Your orders?",
+        "Description": "Several of our Agents report, that a alliance of political parties are preparing your assassination. We should act before they can strike. Your orders?",
         "FunFact": "fun_fact",
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 18
             }
@@ -2722,7 +2742,7 @@ Monarch.events2 = [
         ],
         "Decisions": [
             {
-                "Option": "Lend Money from Nobles and Merchants. I will repay.",
+                "Option": "Lend Balance from Nobles and Merchants. I will repay.",
                 "Effects": [
                     {
                         "Unit": "Nobles",
@@ -2742,7 +2762,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "+",
-                        "Value": 3000
+                        "Value": 30000
                     }
                 ]
             },
@@ -2807,7 +2827,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "+",
-                        "Value": 2500
+                        "Value": 15000
                     }
                     ,
                     {
@@ -2851,7 +2871,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 30
             }
@@ -2887,7 +2907,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "+",
-                        "Value": 300
+                        "Value": 3500
                     }
                 ]
             },
@@ -2938,7 +2958,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 250
+                        "Value": 4500
                     }
                     ,
                     {
@@ -2971,7 +2991,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "+",
-                        "Value": 250
+                        "Value": 25000
                     }
                     ,
                     {
@@ -2985,7 +3005,7 @@ Monarch.events2 = [
                         "Unit": "Workers",
                         "Variable": "Count",
                         "Operator": "+",
-                        "Value": 250
+                        "Value": 450
                     }
                     ,
                     {
@@ -2999,7 +3019,7 @@ Monarch.events2 = [
                         "Unit": "Farmers",
                         "Variable": "Count",
                         "Operator": "+",
-                        "Value": 250
+                        "Value": 450
                     }
                     ,
                     {
@@ -3014,6 +3034,13 @@ Monarch.events2 = [
                         "Variable": "Count",
                         "Operator": "+",
                         "Value": 250
+                    }
+                    ,
+                    {
+                        "Unit": "Land",
+                        "Variable": "Colonies",
+                        "Operator": "-",
+                        "Value": 20
                     }
 
                 ]
@@ -3029,7 +3056,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 40
             }
@@ -3108,7 +3135,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 250
+                        "Value": 2500
                     }
                     ,
                     {
@@ -3125,13 +3152,13 @@ Monarch.events2 = [
     ,
     {
         "ID": 225,
-        "Title": "Native Emmigration ends in Massacre",
+        "Title": "Native Emigration ends in Massacre",
         "Description": "General Mustard intercepted natives on his own account, who where illegally migrating away from their designated reservate. What now, #MONARCH?",
         "FunFact": "fun_fact",
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 16
             }
@@ -3164,7 +3191,7 @@ Monarch.events2 = [
                 ]
             },
             {
-                "Option": "Pay both the families of the natives and soldiers a fine. This was a tragedy.",
+                "Option": "Pay both the families of the natives and soldiers a fine. This was a trAgedy.",
                 "Effects": [
                     {
                         "Unit": "Land",
@@ -3184,7 +3211,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 250
+                        "Value": 2500
                     }
 
 
@@ -3204,7 +3231,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 350
+                        "Value": 3500
                     }
                     ,
                     {
@@ -3233,14 +3260,14 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 69
             }
             ,
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": "<",
                 "Value": 71
             }
@@ -3304,13 +3331,13 @@ Monarch.events2 = [
                 ]
             },
             {
-                "Option": "On the contrary! We should help our former foes and rebuild them to a powerfull ally!",
+                "Option": "On the contrary! We should help our former foes and rebuild them to a powerful ally!",
                 "Effects": [
                     {
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 2000
+                        "Value": 25000
                     }
                     ,
                     {
@@ -3367,7 +3394,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 69
             }
@@ -3381,9 +3408,9 @@ Monarch.events2 = [
             ,
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": "<",
-                "Value": 71
+                "Value": 74
             }
         ],
         "Decisions": [
@@ -3401,7 +3428,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 500
+                        "Value": 50000
                     }
                     ,
                     {
@@ -3535,7 +3562,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 70
             }
@@ -3562,7 +3589,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 500
+                        "Value": 5000
                     }
                     ,
                     {
@@ -3601,7 +3628,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 100
+                        "Value": 2000
                     }
                     ,
                     {
@@ -3725,7 +3752,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 70
             }
@@ -3745,7 +3772,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 1000
+                        "Value": 24000
                     }
                     ,
                     {
@@ -3823,12 +3850,12 @@ Monarch.events2 = [
     {
         "ID": 216,
         "Title": "Red Alert",
-        "Description": "Another Nation has panicked due to recent events and launched thier missiles at an adversary. We are not targeted, but what may come now might not be survived by anybody. Your orders, #MONARCH?",
+        "Description": "Another Nation has panicked due to recent events and launched their missiles at an adversary. We are not targeted, but what may come now might not be survived by anybody. Your orders, #MONARCH?",
         "FunFact": "fun_fact",
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 70
             }
@@ -3848,7 +3875,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 1000
+                        "Value": 100000
                     }
                     ,
                     {
@@ -3988,7 +4015,7 @@ Monarch.events2 = [
                         "Unit": "Nobles",
                         "Variable": "Count",
                         "Operator": "-",
-                        "Value": 200
+                        "Value": 5
                     }
                     ,
                     {
@@ -4014,7 +4041,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 5000
+                        "Value": 15000
                     }
                ,
                 ]
@@ -4042,7 +4069,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 72
             }
@@ -4059,8 +4086,8 @@ Monarch.events2 = [
                 "Option": "Yes. This silent war has frozen our hearts. Time to welcome the warmth.",
                 "Effects": [
                     {
-                        "Unit": "Diplomacy",
-                        "Variable": "Balance",
+                        "Unit": "Land",
+                        "Variable": "Diplomacy",
                         "Operator": "+",
                         "Value": 50
                     }
@@ -4177,7 +4204,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 300
+                        "Value": 3500
                     }
                     ,
                 ]
@@ -4193,7 +4220,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 72
             }
@@ -4213,7 +4240,7 @@ Monarch.events2 = [
                         "Unit": "Land",
                         "Variable": "Balance",
                         "Operator": "-",
-                        "Value": 1000
+                        "Value": 15000
                     }
                     ,
                     {
@@ -4376,7 +4403,7 @@ Monarch.events2 = [
         "Conditions": [
             {
                 "Unit": "Monarch",
-                "Variable": "age",
+                "Variable": "Age",
                 "Operator": ">",
                 "Value": 69
             }

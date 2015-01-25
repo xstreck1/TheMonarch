@@ -70,6 +70,11 @@ $(function () {
     // MERGE DATA
     Monarch.events = $.merge(Monarch.events, Monarch.events2);
 
+    // Set initials
+    for (var i = 0; i < Monarch.Factions.length; i++) {
+        Monarch.state[Monarch.Factions[i]].Mood = Math.floor(Math.random() * 50 + 25);
+    }
+
     var pstyle = 'background-color: #F5F5F5; border: 1px solid #CCCCCC; padding: 5px;';
 
     // Create layout
@@ -122,14 +127,14 @@ Monarch.loadData = function () {
         }
         ;
     };
-    getStats("Monarch");
+    /*getStats("Monarch");
     stats.push(
             {
                 recid: stats.length + 1,
                 status: "",
                 value: ""
             }
-    );
+    );*/
     getStats("Land");
 
     // Create the faction Grid
