@@ -8152,12 +8152,12 @@ var w2popup = {};
             var eventData = w2popup.trigger({ phase: 'before', type: 'keydown', target: 'popup', options: options, originalEvent: event });
             if (eventData.isCancelled === true) return;
             // default behavior
-            switch (event.keyCode) {
+            /*switch (event.keyCode) {
                 case 27:
                     event.preventDefault();
                     if ($('#w2ui-popup .w2ui-popup-message').length > 0) w2popup.message(); else w2popup.close();
                     break;
-            }
+            }*/
             // event after
             w2popup.trigger($.extend(eventData, { phase: 'after'}));
         },

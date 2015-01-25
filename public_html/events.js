@@ -95,7 +95,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "-",
                         "Value": 15
                     },
@@ -124,7 +124,7 @@ Monarch.events = [
                 "Effects": [
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "+",
                         "Value": 15
                     },
@@ -206,7 +206,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "+",
                         "Value": 5
                     },
@@ -247,7 +247,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "-",
                         "Value": 15
                     },
@@ -264,7 +264,7 @@ Monarch.events = [
     ,
     {
         "ID": 4,
-        "Title": "Army encircled with a rival city",
+        "Title": "Army encircled in a rival city",
         "Description": "Our army has been trapped in an enemy encirclement. The cannot hold out for long!",
         "FunFact": "fun_fact",
         "Conditions": [
@@ -305,7 +305,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "-",
                         "Value": 10
                     },
@@ -334,7 +334,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "+",
                         "Value": 5
                     },
@@ -380,7 +380,7 @@ Monarch.events = [
                 "Effects": [
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "-",
                         "Value": 5
                     },
@@ -409,7 +409,7 @@ Monarch.events = [
                     },
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "-",
                         "Value": 5
                     },
@@ -610,7 +610,7 @@ Monarch.events = [
                 "Effects": [
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "+",
                         "Value": 15
                     },
@@ -654,10 +654,10 @@ Monarch.events = [
         ]
     }
     ,
-    {
+        {
         "ID": 8,
         "Title": "A strange strategy",
-        "Description": "One of our generals suggests a weaponized blimp-squadron.",
+        "Description": "One of our generals suggests a weaponized zeppelin-squadron.",
         "FunFact": "fun_fact",
         "Conditions": [
             {
@@ -685,7 +685,7 @@ Monarch.events = [
                 "Effects": [
                     {
 			"Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "+",
                         "Value": 15
                     },
@@ -978,7 +978,7 @@ Monarch.events = [
                 "Unit" : "Monarch",
                 "Variable": "age",
                 "Operator": ">",
-                "Value": 25
+                "Value": 16
             },
             {
         	"Unit" : "Monarch",
@@ -1177,7 +1177,7 @@ Monarch.events = [
                 "Unit" : "Monarch",
                 "Variable": "age",
                 "Operator": ">",
-                "Value": 20
+                "Value": 16
             },
             {
                 "Unit" : "Land",
@@ -1234,13 +1234,7 @@ Monarch.events = [
                 "Unit" : "Monarch",
                 "Variable": "age",
                 "Operator": ">",
-                "Value": 20
-            },
-            {
-                "Unit" : "Land",
-                "Variable": "Balance",
-                "Operator": ">",
-                "Value": 500
+                "Value": 16
             }
         ],
         "Decisions": [
@@ -1248,14 +1242,14 @@ Monarch.events = [
                 "Option": "Oooops... Do nothing.",
                 "Effects": [
                     {
-                        "Unit" : "Military",
+                        "Unit" : "Militarists",
                         "Variable": "Count",
                         "Operator": "-",
                         "Value": 15
                     },
                     {
                         "Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "-",
                         "Value": 5
                     }
@@ -1265,14 +1259,14 @@ Monarch.events = [
                 "Option": "Order an even bigger ship.",
                 "Effects": [
                     {
-                        "Unit" : "Military",
+                        "Unit" : "Militarists",
                         "Variable": "Count",
                         "Operator": "-",
                         "Value": 15
                     },
                     {
                         "Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "-",
                         "Value": 10
                     },
@@ -1288,14 +1282,14 @@ Monarch.events = [
                 "Option": "Have the General procecuted.",
                 "Effects": [
                     {
-                        "Unit" : "Military",
+                        "Unit" : "Militarists",
                         "Variable": "Count",
                         "Operator": "-",
                         "Value": 20
                     },
                     {
                         "Unit" : "Land",
-                        "Variable": "Diplomacy",
+                        "Variable": "Deplomacy",
                         "Operator": "-",
                         "Value": 5
                     },
@@ -1304,6 +1298,1303 @@ Monarch.events = [
                         "Variable": "Gain",
                         "Operator": "+",
                         "Value": 2
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 20,
+        "Title": "Market Crash",
+        "Description": "#MONARCH, the markets have crashed and crime is rampant in the street. The people are calling this the great depression.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": ">",
+                "Value": 41
+            },
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": "<",
+                "Value": 48
+            },
+            {
+                "Unit" : "Land",
+                "Variable": "EventChain",
+                "Operator": "==",
+                "Value": 0
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "Alcohol must be the cause of is! Prohibit the vile substance!",
+                "Effects": [
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Count",
+                        "Operator": "+",
+                        "Value": 300
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 250
+                    },
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Clergy",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Nobles",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Academics",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Servants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 15
+                    },
+                    {
+			"Unit" : "Land",
+                        "Variable": "EventChain",
+                        "Operator": "=",
+                        "Value": 4
+                    }
+                ]
+            },
+            {
+                "Option": "Wage a war on corruption, oust anyone you don't trust.",
+                "Effects": [
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Workers",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Farmers",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Clergy",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Nobles",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Academics",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Servants",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "count",
+                        "Operator": "-",
+                        "Value": 50
+                    },
+                    {
+			"Unit" : "Land",
+                        "Variable": "EventChain",
+                        "Operator": "=",
+                        "Value": 4
+                    }
+                    
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 21,
+        "Title": "Market back on the climb",
+        "Description": "The Market has finally stabalized. The streets have been dangerous for the past years, but things are finally looking up again.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": ">",
+                "Value": 41
+            },
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": "<",
+                "Value": 49
+            },
+            {
+                "Unit" : "Land",
+                "Variable": "EventChain",
+                "Operator": "==",
+                "Value": 4
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "We should celebrate that fact with a beer!",
+                "Effects": [
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 300
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "+",
+                        "Value": 250
+                    },
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Clergy",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Nobles",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Academics",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Servants",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 15
+                    },
+                    {
+			"Unit" : "Land",
+                        "Variable": "EventChain",
+                        "Operator": "=",
+                        "Value": 0
+                    }
+                ]
+            },
+            {
+                "Option": "Alcohol should still be forbidden.",
+                "Effects": [
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Workers",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Farmers",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Clergy",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Nobles",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Academics",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Servants",
+                        "Variable": "mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "mood",
+                        "Operator": "+",
+                        "Value": 15
+                    },
+                    {
+			"Unit" : "Land",
+                        "Variable": "EventChain",
+                        "Operator": "=",
+                        "Value": 0
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 22,
+        "Title": "A Black day indeed.",
+        "Description": "A wave of suicides has swept the land, as many find themselves unable to deal with the sudden loss of money.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": ">",
+                "Value": 41
+            },
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": "<",
+                "Value": 49
+            },
+            {
+                "Unit" : "Land",
+                "Variable": "EventChain",
+                "Operator": "==",
+                "Value": 4
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "We must invest, get the flow of money going again!",
+                "Effects": [
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Count",
+                        "Operator": "+",
+                        "Value": 25
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 1000
+                    },
+                    {
+			"Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 100
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 10
+                    }
+                ]
+            },
+            {
+                "Option": "Let the Market sort it self out. This will take as long as it has to.",
+                "Effects": [
+                    {
+			"Unit" : "Workers",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 50
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 100
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 25
+                    },
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "Count",
+                        "Operator": "+",
+                        "Value": 30
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 23,
+        "Title": "Excentric Gangster Couple",
+        "Description": "For the thrid time a two gangsters, a man and a woman, managed to rob a bank and evade the police, inguring several officers in the progress.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": ">",
+                "Value": 41
+            },
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": "<",
+                "Value": 49
+            },
+            {
+                "Unit" : "Land",
+                "Variable": "EventChain",
+                "Operator": "==",
+                "Value": 4
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "Throw everything we have at them!",
+                "Effects": [
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 25
+                    },
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 25
+                    },
+                    {
+			"Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 250
+                    }
+                ]
+            },
+            {
+                "Option": "Attempt to lure them into a trap.",
+                "Effects": [
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 15
+                    },
+                    {
+			"Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "+",
+                        "Value": 250
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 24,
+        "Title": "Corruption and Bribary",
+        "Description": "Rumours of corruption and bribary are spreading. The populus is becoming restless.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": ">",
+                "Value": 41
+            },
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": "<",
+                "Value": 49
+            },
+            {
+                "Unit" : "Land",
+                "Variable": "EventChain",
+                "Operator": "==",
+                "Value": 4
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "Rediuculous. They're not bribes, they're gifts.",
+                "Effects": [
+                    {
+                        "Unit" : "Monarch",
+                        "Variable": "GameOver",
+                        "Operator": "=",
+                        "Value": 3
+                    }
+                ]
+            },
+            {
+                "Option": "These are serious acusations. We must act acordingly.",
+                "Effects": [
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 15
+                    },
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "Income",
+                        "Operator": "-",
+                        "Value": 3
+                    },
+                    {
+			"Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "+",
+                        "Value": 250
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 25,
+        "Title": "High Taxes",
+        "Description": "The Population is protesting against the high taxes. They find them unjust in these hard times.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": ">",
+                "Value": 41
+            },
+            {
+                "Unit" : "Monarch",
+                "Variable": "Age",
+                "Operator": "<",
+                "Value": 49
+            },
+            {
+                "Unit" : "Land",
+                "Variable": "EventChain",
+                "Operator": "==",
+                "Value": 4
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "Lower Taxes",
+                "Effects": [
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Workers",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Farmers",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Clergy",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Nobles",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Academics",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Servants",
+                        "Variable": "Pay",
+                        "Operator": "+",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Mafia",
+                        "Variable": "Pay",
+                        "Operator": "-",
+                        "Value": 15
+                    }
+                ]
+            },
+            {
+                "Option": "Raise Taxes.",
+                "Effects": [
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "+",
+                        "Value": 250
+                    },
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+			"Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+			"Unit" : "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+			"Unit" : "Clergy",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    }
+                    ,
+                    {
+			"Unit" : "Nobles",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+			"Unit" : "Academics",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+			"Unit" : "Servants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    }
+                ]
+            },
+            {
+                "Option": "Keep Taxes as they are.",
+                "Effects": [
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "+",
+                        "Value": 100
+                    },
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Merchants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Clergy",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                    ,
+                    {
+			"Unit" : "Nobles",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Academics",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+			"Unit" : "Servants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 30,
+        "Title": "Psychic Warfare",
+        "Description": "Great #MONARCH, one of your Generals has requested funding, in order to research psychic warfare. Walking through walls would give us a definite advantage in Battle, he says.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "age",
+                "Operator": ">",
+                "Value": 16
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "A promising Project! Pay him what he wants.",
+                "Effects": [
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Income",
+                        "Operator": "+",
+                        "Value": 2
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 750
+                    },
+                    {
+                        "Unit" : "Academics",
+                        "Variable": "Income",
+                        "Operator": "+",
+                        "Value": 1
+                    }
+                ]
+            },
+            {
+                "Option": "Let's just focus on regular weapons technology for now.",
+                "Effects": [
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Income",
+                        "Operator": "+",
+                        "Value": 1
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 250
+                    }
+                ]
+            },
+            {
+                "Option": "Use a cannon to fire the general through a wall.",
+                "Effects": [
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 1
+                    },
+                    {
+			"Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 31,
+        "Title": "Religious uproar.",
+        "Description": "A konservative and a progressive religous faction are vying for the popolus' beliefs. Conflicts are beginning to escalate.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "age",
+                "Operator": ">",
+                "Value": 16
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "Support the konservative faction.",
+                "Effects": [
+                    {
+                        "Unit" : "Clergy",
+                        "Variable": "Count",
+                        "Operator": "+",
+                        "Value": 50
+                    },
+                    {
+                        "Unit" : "Clergy",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 15
+                    },
+                    {
+                        "Unit" : "Academics",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Nobels",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    }
+                ]
+            },
+            {
+                "Option": "Support the progressive Faction",
+                "Effects": [
+                    {
+                        "Unit" : "Clergy",
+                        "Variable": "Count",
+                        "Operator": "+",
+                        "Value": 50
+                    },
+                    {
+                        "Unit" : "Clergy",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 15
+                    },
+                    {
+                        "Unit" : "Academics",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Merchants",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    }
+                ]
+            },
+            {
+                "Option": "Abolish religion.",
+                "Effects": [
+                    {
+                        "Unit" : "Clergy",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 200
+                    },
+                    {
+                        "Unit" : "Clergy",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 50
+                    },
+                    {
+                        "Unit" : "Academics",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Nobels",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Merchants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 32,
+        "Title": "Minister in Trouble.",
+        "Description": "One of our Ministers and a close fried of yours has a reputation for getting too drunk for even the most lenient bars and to devulge state secrets when intoxicated.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "age",
+                "Operator": ">",
+                "Value": 16
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "We must make an example. Execute him.",
+                "Effects": [
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Count",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 15
+                    },
+                    {
+                        "Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    }
+                ]
+            },
+            {
+                "Option": "My friends can do as the please.",
+                "Effects": [
+                    {
+                        "Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Nobles",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Merchants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 10
+                    },
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 10
+                    }
+                ]
+            },
+            {
+                "Option": "Strip him of his rank and buy him a house on an isolated island.",
+                "Effects": [
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 150
+                    },
+                    {
+                        "Unit" : "Academics",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+                        "Unit" : "Workers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+                        "Unit" : "Nobels",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+                        "Unit" : "Mafia",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+                        "Unit" : "Farmers",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+                        "Unit" : "Merchants",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    },
+                    {
+                        "Unit" : "Bureaucrats",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                ]
+            }
+        ]
+    }
+    ,
+    {
+	"ID": 33,
+        "Title": "Civil War in a neighbouring country",
+        "Description": "Republicans and Nationalists are both vying for power in a neighbouring country. They have both requested your support.",
+        "FunFact": "fun_fact",
+        "Conditions": [
+            {
+                "Unit" : "Monarch",
+                "Variable": "age",
+                "Operator": ">",
+                "Value": 16
+            }
+        ],
+        "Decisions": [
+            {
+                "Option": "Support the Republicans.",
+                "Effects": [
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Count",
+                        "Operator": "+",
+                        "Value": 150
+                    },
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 15
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 250
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Diplomacy",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                ]
+            },
+            {
+                "Option": "Support the Nationalists",
+                "Effects": [
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Count",
+                        "Operator": "+",
+                        "Value": 150
+                    },
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "+",
+                        "Value": 15
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Balance",
+                        "Operator": "-",
+                        "Value": 250
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Diplomacy",
+                        "Operator": "-",
+                        "Value": 5
+                    }
+                ]
+            },
+            {
+                "Option": "Stay out of this.",
+                "Effects": [
+                    {
+                        "Unit" : "Militarists",
+                        "Variable": "Mood",
+                        "Operator": "-",
+                        "Value": 15
+                    },
+                    {
+                        "Unit" : "Land",
+                        "Variable": "Diplomacy",
+                        "Operator": "-",
+                        "Value": 15
                     }
                 ]
             }

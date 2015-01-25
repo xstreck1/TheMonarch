@@ -100,6 +100,28 @@ Monarch.choice = function (event, choice) {
     }
     Monarch.destroy();
     Monarch.loadData();
+
+    if (Monarch.state.Monarch.GameOver > 0) {
+        w2popup.open({
+            title: Monarch.GameOverCauses[Monarch.state.Monarch.GameOver],
+            body: '<div class="w2ui-centered">' 
+                    + Monarch.GameOverMessages[Monarch.state.Monarch.GameOver] 
+                    + '</div>'
+                    + '<img src="images/death_' 
+                    + Monarch.state.Monarch.GameOver 
+                    + '.jpg" alt="death illustration" />',
+            width: 500,
+            height: 300,
+            overflow: 'hidden',
+            color: '#333',
+            speed: '0.3',
+            opacity: '0.8',
+            showClose: true,
+            onClose: function (event) {
+                location.reload();
+            }
+        });
+    }
 };
 
 Monarch.endTurn = function () {
