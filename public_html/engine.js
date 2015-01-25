@@ -63,7 +63,7 @@ Monarch.printChange = function (Unit, Variable, direction) {
     } else
         return;
     $("#text_panel").append(message + "<br/>");
-}
+};
 
 Monarch.choice = function (event, choice) {
     Monarch.choiceMade();
@@ -110,8 +110,8 @@ Monarch.endTurn = function () {
 
 Monarch.boundValues = function (state_var) {
     state_var.Mood = Math.min(Math.max(state_var.Mood, 0), 100);
-    state_var.Count = Math.max(state_var.Mood, 0);
-    state_var.Gain = Math.max(state_var.Mood, 0);
+    state_var.Count = Math.max(state_var.Count, 0);
+    state_var.Gain = Math.max(state_var.Gain, 0);
     state_var.Pay = Math.max(state_var.Pay, 0);
 };
 
@@ -143,9 +143,10 @@ Monarch.choiceMade = function () {
     }
 
     var money_change = Monarch.accountMoney();
-    var interest = Monarch.state.Land.Balance * 0.05;
+    var interest = Math.round(Monarch.state.Land.Balance / 100) * 5;
     money_change += interest;
-    var money_message = "<p>The yearly interest is " + interest + ". Your ballance has changed in total by " + money_change + ".</p>";
+    var money_message = "<p>The yearly interest is " + interest
+            + ". Your ballance has changed in total by " + money_change + ".</p>";
     Monarch.state.Land.Balance += money_change;
     $("#text_panel").append(money_message);
 };
@@ -156,5 +157,5 @@ Monarch.accountMoney = function () {
         var faction = Monarch.Factions[i];
         money_change += (Monarch.state[faction].Gain - Monarch.state[faction].Pay) * Monarch.state[faction].Count;
     }
-    return money_change;
+    return Math.round(money_change / 100) * 100;
 };

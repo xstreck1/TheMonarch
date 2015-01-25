@@ -6,64 +6,64 @@ Monarch.Land = ["Balance", "Diplomacy", "Colonies"];
 
 Monarch.state = {
     "Workers": {
-        "Count": 100,
+        "Count": 50,
         "Mood": 50.0,
-        "Gain": 2.0,
-        "Pay": 1.0
+        "Gain": 3.0,
+        "Pay": 2.0
     },
     "Farmers": {
         "Count": 100,
         "Mood": 50.0,
-        "Gain": 2.0,
-        "Pay": 1.0
+        "Gain": 3.0,
+        "Pay": 2.0
     },
     "Merchants": {
-        "Count": 100,
+        "Count": 25,
         "Mood": 50.0,
-        "Gain": 2.0,
-        "Pay": 1.0
+        "Gain": 4.0,
+        "Pay": 3.0
     },
     "Clergy": {
-        "Count": 100,
+        "Count": 20,
         "Mood": 50.0,
         "Gain": 2.0,
-        "Pay": 1.0
+        "Pay": 5.0
     },
     "Militarists": {
-        "Count": 100,
+        "Count": 50,
         "Mood": 50.0,
-        "Gain": 2.0,
-        "Pay": 1.0
+        "Gain": 1.0,
+        "Pay": 2.0
     },
     "Nobles": {
-        "Count": 100,
+        "Count": 5,
         "Mood": 50.0,
-        "Gain": 2.0,
-        "Pay": 1.0
+        "Gain": 5,
+        "Pay": 10
     },
     "Academics": {
-        "Count": 100,
+        "Count": 10,
         "Mood": 50.0,
-        "Gain": 2.0,
-        "Pay": 1.0
+        "Gain": 3.0,
+        "Pay": 5.0
     },
     "Bureaucrats": {
-        "Count": 100,
+        "Count": 10,
         "Mood": 50.0,
-        "Gain": 2.0,
-        "Pay": 1.0
+        "Gain": 0.0,
+        "Pay": 3.0
     },
     "Servants": {
-        "Count": 100,
+        "Count": 1,
         "Mood": 50.0,
         "Gain": 2.0,
-        "Pay": 1.0
+        "Pay": 2.0
     },
     "Mafia": {
-        "Count": 100,
+        "Count": 1,
         "Mood": 50.0,
-        "Gain": 2.0,
-        "Pay": 1.0
+        "Gain": 0.0,
+        "Pay": 5.0
     },
     "Monarch": {
         "Name": "The Monarch 1",
