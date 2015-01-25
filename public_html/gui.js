@@ -21,7 +21,7 @@ Monarch.askName = function () {
         showClose: false,
         showMax: false
     });
-    
+
     $(".w2ui-msg-buttons").css("height", "30pt");
 
     $("#name_ok").click(function () {
@@ -46,18 +46,18 @@ Monarch.startGame = function () {
             );
 };
 
-Monarch.addButtons = function() {
+Monarch.addButtons = function () {
     w2ui['layout'].content('bottom', '<div id="controls"></div>');
-    
+
     $("#controls").append('<div id="fundings" style="text-align: center">SPEND 500 FROM YOUR YEARLY BUDGET ON:<br/></div>');
-    
+
     for (var i = 0; i < Monarch.Factions.length; i++) {
-        $('<input />', { type: 'checkbox', id: 'fund_' + Monarch.Factions[i], value: "fund_" + Monarch.Factions[i]}).appendTo($("#controls"));
+        $('<input />', {type: 'checkbox', id: 'fund_' + Monarch.Factions[i], value: "fund_" + Monarch.Factions[i]}).appendTo($("#controls"));
         $("#controls").append(Monarch.Factions[i]);
     }
-    
+
     $("#controls").append('<div style="text-align: right"><button class="btn" id="end_turn_button" >END TURN</button></div>');
-    
+
     Monarch.loadData();
     $("#end_turn_button").click(function () {
         Monarch.endTurn();
@@ -70,7 +70,7 @@ $(function () {
     // MERGE DATA
     Monarch.events = $.merge(Monarch.events, Monarch.events2);
 
-    var pstyle = 'background-color: #F5F6F7; border: 1px solid #dfdfdf; padding: 5px;';
+    var pstyle = 'background-color: #F5F5F5; border: 1px solid #CCCCCC; padding: 5px;';
 
     // Create layout
     $('#layout').w2layout({
@@ -83,7 +83,7 @@ $(function () {
             {type: 'bottom', size: "80pt", resizable: true, style: pstyle, content: 'bottom'}
         ]
     });
-    
+
     Monarch.addButtons();
 });
 
@@ -178,6 +178,6 @@ Monarch.loadPopup = function (event_index) {
     }
 
     $('#popup1').w2popup({showClose: false});
-    
+
     $(".w2ui-msg-buttons").css("height", (30 * data.Decisions.length) + "pt");
 };

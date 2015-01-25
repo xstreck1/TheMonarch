@@ -1394,7 +1394,7 @@ button.btn-red.clicked {
   bottom: 0px;
   z-index: 1;
   color: inherit;
-  background-color: #f5f6f7;
+  background-color: #eeeeee;
 }
 .w2ui-layout > div .w2ui-resizer {
   display: none;
@@ -1544,22 +1544,22 @@ button.btn-red.clicked {
 }
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records table tr.w2ui-odd {
   color: inherit;
-  background-color: #ffffff;
+  background-color: #dddddd;
 }
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records table tr.w2ui-odd:hover {
   color: inherit;
-  background-color: #e6f0ff;
+  background-color: #ffffff;
 }
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records table tr.w2ui-odd.w2ui-empty-record:hover {
-  background-color: #ffffff;
+  background-color: #dddddd;
 }
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records table tr.w2ui-even {
   color: inherit;
-  background-color: #f3f6fa;
+  background-color: #f3f3f3;
 }
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records table tr.w2ui-even:hover {
   color: inherit;
-  background-color: #e6f0ff;
+  background-color: #ffffff;
 }
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records table tr.w2ui-even.w2ui-empty-record:hover {
   background-color: #f3f6fa;
@@ -1567,7 +1567,7 @@ button.btn-red.clicked {
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records table tr.w2ui-selected,
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records table tr td.w2ui-selected {
   color: #000000 !important;
-  background-color: #b6d5ff !important;
+  background-color: #ffffff !important;
 }
 .w2ui-grid .w2ui-grid-body .w2ui-grid-records .w2ui-expanded {
   background-color: #CCDCF0 !important;
