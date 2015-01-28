@@ -4,6 +4,7 @@ Monarch.Factions = ["Workers", "Farmers", "Merchants", "Clergy", "Militarists", 
 Monarch.Monarch = ["Health", "Partners", "Children"];
 Monarch.Land = ["Balance", "Diplomacy", "Colonies"];
 
+// State values --- here are the initial, throughout the game this variable is used for keeping the state
 Monarch.state = {
     "Workers": {
         "Count": 50,
@@ -106,7 +107,6 @@ Monarch.GameOverCauses = [
 
 // Tweakable values outside the events
 Monarch.Params = {
-    "Interest": 1.05, // Yearly interest, i.e. new_ballance = old_ballance * interest
     "MaxAge": 81, // When the monarch dies due to old age
     "Funding": [// What happens when you fund a faction, Faction is substituted for the real name
         {
@@ -156,4 +156,19 @@ Monarch.countScore = function() {
         score += (Monarch.state[faction].Mood + Monarch.state[faction].Count) / 10;
     });
     return score;
+};
+
+// Count the yearly product
+Monarch.computeProduct = function () {
+    var money_change = 0;
+    Monarch.Factions.forEach(function (faction) {
+        money_change += (Monarch.state[faction].Gain - Monarch.state[faction].Pay) * Monarch.state[faction].Count;
+    });
+    return Math.round(money_change / 100) * 100; // Round to two decimals
+};
+
+// Yearly interest, i.e. new_ballance = old_ballance * interest
+Monarch.computeInterest = function() {
+    var Interest_rate = 1.05;
+    return Math.round(Monarch.state.Land.Balance * Interest_rate);
 };

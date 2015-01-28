@@ -99,8 +99,6 @@ Monarch.applyEffect = function (effect, verbose) {
 
 // User selected a choice
 Monarch.selectChoice = function (event_file, event_index, choice) {
-    w2popup.close();
-
     // Do accounting
     Monarch.resolveYear();
 
@@ -120,6 +118,9 @@ Monarch.selectChoice = function (event_file, event_index, choice) {
     // Reload data
     Monarch.destroy();
     Monarch.loadData();
+
+    // close choice
+    w2popup.close();
 
     // Check age
     if (Monarch.state.Monarch.Age > Monarch.Params.MaxAge)
@@ -171,16 +172,8 @@ Monarch.resolveYear = function () {
 
     // Count money
     var product = Monarch.computeProduct();
-    var interest = Math.round(Monarch.state.Land.Balance * Monarch.Params.Interest);
+    var interest = Monarch.computeInterest();
     var money_message = "<p>The yearly interest is " + interest + ". The national product was " + product + ".</p>";
     Monarch.state.Land.Balance += product + interest;
     $("#text_panel").append(money_message);
-};
-
-Monarch.computeProduct = function () {
-    var money_change = 0;
-    Monarch.Factions.forEach(function (faction) {
-        money_change += (Monarch.state[faction].Gain - Monarch.state[faction].Pay) * Monarch.state[faction].Count;
-    });
-    return Math.round(money_change / 100) * 100;
 };
