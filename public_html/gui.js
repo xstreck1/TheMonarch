@@ -4,6 +4,21 @@
  * and open the template in the editor.
  */
 
+// Create layout
+Monarch.buildLayout = function () {
+    var pstyle = 'background-color: #F5F5F5; border: 1px solid #CCCCCC; padding: 5px;';
+    $('#layout').w2layout({
+        name: 'layout',
+        panels: [
+            {type: 'top', size: "40pt", resizable: true, style: pstyle + "font-size: 15pt; text-align: center", content: 'The Monarch'},
+            {type: 'left', size: "200pt", resizable: true, style: pstyle, content: 'left'},
+            {type: 'main', style: pstyle, content: '<div id="text_panel"></div>'},
+            {type: 'right', size: "300pt", resizable: true, style: pstyle, content: 'right'},
+            {type: 'bottom', size: "80pt", resizable: true, style: pstyle, content: 'bottom'}
+        ]
+    });
+};
+
 Monarch.askName = function () {
     w2popup.open({
         title: 'Welcome, sire!',
@@ -64,34 +79,6 @@ Monarch.addButtons = function () {
     });
 };
 
-$(function () {
-    Monarch.askName();
-
-    // MERGE DATA
-    Monarch.events = $.merge(Monarch.events, Monarch.events2);
-
-    // Set initials
-    for (var i = 0; i < Monarch.Factions.length; i++) {
-        Monarch.state[Monarch.Factions[i]].Mood = Math.floor(Math.random() * 50 + 25);
-    }
-
-    var pstyle = 'background-color: #F5F5F5; border: 1px solid #CCCCCC; padding: 5px;';
-
-    // Create layout
-    $('#layout').w2layout({
-        name: 'layout',
-        panels: [
-            {type: 'top', size: "40pt", resizable: true, style: pstyle + "font-size: 15pt; text-align: center", content: 'The Monarch'},
-            {type: 'left', size: "200pt", resizable: true, style: pstyle, content: 'left'},
-            {type: 'main', style: pstyle, content: '<div id="text_panel"></div>'},
-            {type: 'right', size: "300pt", resizable: true, style: pstyle, content: 'right'},
-            {type: 'bottom', size: "80pt", resizable: true, style: pstyle, content: 'bottom'}
-        ]
-    });
-
-    Monarch.addButtons();
-});
-
 Monarch.destroy = function () {
     w2ui['factions_grid'].destroy();
     w2ui['values_grid'].destroy();
@@ -128,13 +115,13 @@ Monarch.loadData = function () {
         ;
     };
     /*getStats("Monarch");
-    stats.push(
-            {
-                recid: stats.length + 1,
-                status: "",
-                value: ""
-            }
-    );*/
+     stats.push(
+     {
+     recid: stats.length + 1,
+     status: "",
+     value: ""
+     }
+     );*/
     getStats("Land");
 
     // Create the faction Grid
@@ -164,16 +151,18 @@ Monarch.loadData = function () {
 };
 
 Monarch.loadPopup = function (event_index) {
-    var data = Monarch.events[event_index];
-    $("#event_title").html(data.Title)
+    var data = Monarch.events[event_index[0]][event_index[1]];
+    $("#event_title").html(data.Title);
     $("#event_picture").attr("src", "./images/" + data.ID + ".jpg");
     $("#event_decription").html(data.Description.replace(/#MONARCH/g, Monarch.state.Monarch.Name));
 
     $("#popup_buttons").html("");
     for (var i = 0; i < data.Decisions.length; i++) {
         $("#popup_buttons").append(
-                '<button class="btn choice_button" onclick="Monarch.choice(' +
-                event_index +
+                '<button class="btn choice_button" onclick="Monarch.selectChoice(' +
+                event_index[0] +
+                ", " +
+                event_index[1] +
                 ", " +
                 i +
                 ')"> ' +
@@ -185,4 +174,29 @@ Monarch.loadPopup = function (event_index) {
     $('#popup1').w2popup({showClose: false});
 
     $(".w2ui-msg-buttons").css("height", (30 * data.Decisions.length) + "pt");
+};
+
+Monarch.displayFinalScreen = function (score) {
+    w2popup.open({
+        title: Monarch.GameOverCauses[Monarch.state.Monarch.GameOver],
+        body: '<div style="text-align: center" >'
+                + '<br/><img src="images/death_'
+                + Monarch.state.Monarch.GameOver
+                + '.jpg" alt="death illustration" /><br/><br /> '
+                + Monarch.GameOverMessages[Monarch.state.Monarch.GameOver].replace(/#MONARCH/g, Monarch.state.Monarch.Name)
+                + '<h2>YOUR SCORE IS: '
+                + Math.floor(score)
+                + '</h2>'
+                + '</div>',
+        width: "600pt",
+        height: "400pt",
+        overflow: 'hidden',
+        color: '#333',
+        speed: '0.3',
+        opacity: '0.8',
+        showClose: true,
+        onClose: function (event) {
+            location.reload();
+        }
+    });
 };

@@ -103,3 +103,57 @@ Monarch.GameOverCauses = [
     "Abdication",
     "Old Age"
 ];
+
+// Tweakable values outside the events
+Monarch.Params = {
+    "Interest": 1.05, // Yearly interest, i.e. new_ballance = old_ballance * interest
+    "MaxAge": 81, // When the monarch dies due to old age
+    "Funding": [// What happens when you fund a faction, Faction is substituted for the real name
+        {
+            "Unit": "Faction",
+            "Variable": "Mood",
+            "Operator": "+",
+            "Value": 10
+        },
+        {
+            "Unit": "Faction",
+            "Variable": "Count",
+            "Operator": "*",
+            "Value": 1.25
+        },
+        {
+            "Unit": "Faction",
+            "Variable": "Pay",
+            "Operator": "/",
+            "Value": 1.5
+        },
+        {
+            "Unit": "Land",
+            "Variable": "Ballance",
+            "Operator": "-",
+            "Value": 500
+        }
+    ],
+    "NoFunding": [ // What happens when you do not fund a faction
+        {
+            "Unit": "Faction",
+            "Variable": "Mood",
+            "Operator": "-",
+            "Value": 2
+        }
+    ]
+};
+
+// For a faction, return the initial mood (should be between 0 and 100)
+Monarch.getInitialMood = function() {
+    Math.floor(Math.random() * 50 + 25);
+};
+
+// Function that counts the final score at the end of the game
+Monarch.countScore = function() {
+    var score = (Monarch.state.Land.Balance / 1000) + Monarch.state.Monarch.GameOver * 10 + Monarch.state.Land.Diplomacy + Monarch.state.Land.Colonies * 2;
+    Monarch.Factions.forEach(function(faction) {
+        score += (Monarch.state[faction].Mood + Monarch.state[faction].Count) / 10;
+    });
+    return score;
+};

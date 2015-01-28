@@ -15,10 +15,35 @@ and open the template in the editor.
 
         <link rel="stylesheet" type="text/css" href="./monarch_ui.css" />
         <script src="./game_state.js"></script>
-        <script src="./events.js"></script>
-        <script src="./events2.js"></script>
         <script src="./gui.js"></script>
         <script src="./engine.js"></script>
+
+        <script>
+            // Initiate the system
+            window.onload = function () {
+                Monarch.askName();
+
+                // Set initials
+                for (var i = 0; i < Monarch.Factions.length; i++)
+                    Monarch.state[Monarch.Factions[i]].Mood = Monarch.getInitialMood();
+
+                Monarch.buildLayout();
+                Monarch.addButtons();
+            };
+
+            Monarch.events = Array(10);
+        </script>
+
+        <script src="./events0.js"></script>
+        <script src="./events1.js"></script>
+        <script src="./events2.js"></script>
+        <script src="./events3.js"></script>
+        <script src="./events4.js"></script>
+        <script src="./events5.js"></script>
+        <script src="./events6.js"></script>
+        <script src="./events7.js"></script>
+        <script src="./events8.js"></script>
+        <script src="./events9.js"></script>
     </head>
 
 

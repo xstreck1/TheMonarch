@@ -4,141 +4,131 @@
  * and open the template in the editor.
  */
 
-// The main loop
+// Checking function
+Monarch.checkConditions = function (conditions) {
+    conditions.forEach(function (condition) {
+        if (condition.Operator === ">") {
+            if (!(Monarch.state[condition.Unit][condition.Variable] > condition.Value)) {
+                return false;
+            }
+        } else if (condition.Operator === "<") {
+            if (!(Monarch.state[condition.Unit][condition.Variable] < condition.Value)) {
+                return false;
+            }
+        } else if (condition.Operator === "==") {
+            if (!(Monarch.state[condition.Unit][condition.Variable] === condition.Value)) {
+                return false;
+            }
+        } else if (condition.Operator === "!=") {
+            if (!(Monarch.state[condition.Unit][condition.Variable] !== condition.Value)) {
+                return false;
+            }
+        } else if (condition.Operator === "<=") {
+            if (!(Monarch.state[condition.Unit][condition.Variable] <= condition.Value)) {
+                return false;
+            }
+        } else if (condition.Operator === ">=") {
+            if (!(Monarch.state[condition.Unit][condition.Variable] >= condition.Value)) {
+                return false;
+            }
+        }
+    });
+    return true;
+};
 
+// Randomly pick one of the events
 Monarch.selectEvent = function () {
     var usable_events = [];
-    for (var event_i = 0; event_i < Monarch.events.length; event_i++) {
-
-        // Checking function
-        var checkConditions = function (conditions) {
-            for (var cond_i = 0; cond_i < conditions.length; cond_i++) {
-                var condition = conditions[cond_i];
-                if (condition.Operator === ">") {
-                    if (!(Monarch.state[condition.Unit][condition.Variable] > condition.Value)) {
-                        return false;
-                    }
-                } else if (condition.Operator === "<") {
-                    if (!(Monarch.state[condition.Unit][condition.Variable] < condition.Value)) {
-                        return false;
-                    }
-                } else if (condition.Operator === "==") {
-                    if (!(Monarch.state[condition.Unit][condition.Variable] === condition.Value)) {
-                        return false;
-                    }
-                } else if (condition.Operator === "!=") {
-                    if (!(Monarch.state[condition.Unit][condition.Variable] !== condition.Value)) {
-                        return false;
-                    }
-                } else if (condition.Operator === "<=") {
-                    if (!(Monarch.state[condition.Unit][condition.Variable] <= condition.Value)) {
-                        return false;
-                    }
-                } else if (condition.Operator === ">=") {
-                    if (!(Monarch.state[condition.Unit][condition.Variable] >= condition.Value)) {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        };
-
-        var conditions = Monarch.events[event_i].Conditions;
-        if (checkConditions(conditions))
-            usable_events.push(event_i);
-    }
+    for (var file_i = 0; file_i < Monarch.events.length; file_i++)
+        for (var event_i = 0; event_i < Monarch.events[file_i].length; event_i++) 
+            if (Monarch.checkConditions(Monarch.events[file_i][event_i].Conditions)) 
+                usable_events.push([file_i, event_i]);
 
     var chosen = Math.floor(Math.random() * usable_events.length);
+
+    // Log ids of events that can be used
     var events_ids = usable_events.map(function (event) {
-        return Monarch.events[event].ID;
+        return Monarch.events[event[0]][event[1]].ID;
     });
     console.log("usable events " + events_ids.join(", "));
+
     return usable_events[chosen];
 };
 
+// Print what happenend with a variable
 Monarch.printChange = function (Unit, Variable, direction) {
     var change = direction ? "up" : "down";
+    var message = "";
     if (Monarch.Factions.indexOf(Unit) !== -1) {
-        var message = "The " + Variable + " of " + Unit + " went " + change;
+        message = "The " + Variable + " of " + Unit + " went " + change;
     } else if (Monarch.Monarch.indexOf(Unit) !== -1) {
-        var message = "Your " + Unit + " went " + change;
+        message = "Your " + Unit + " went " + change;
     } else if (Monarch.Land.indexOf(Unit) !== -1) {
-        var message = "The country's " + Unit + " went " + change;
+        message = "The country's " + Unit + " went " + change;
     } else
         return;
     $("#text_panel").append(message + "<br/>");
 };
 
-Monarch.choice = function (event, choice) {
-    Monarch.choiceMade();
-
-    var choice_var = Monarch.events[event].Decisions[choice];
-
-    $("#text_panel").append("Based on your decision: <br/>");
-    for (var i = 0; i < choice_var.Effects.length; i++) {
-        var effect = choice_var.Effects[i];
-        if (effect.Operator === "+") {
-            Monarch.state[effect.Unit][effect.Variable] += effect.Value;
+// Apply the effects to the current state
+Monarch.applyEffect = function (effect, verbose) {
+    if (effect.Operator === "+") {
+        Monarch.state[effect.Unit][effect.Variable] += effect.Value;
+        if (verbose)
             Monarch.printChange(effect.Unit, effect.Variable, true);
-        }
-        else if (effect.Operator === "-") {
-            Monarch.state[effect.Unit][effect.Variable] -= effect.Value;
+    }
+    else if (effect.Operator === "-") {
+        Monarch.state[effect.Unit][effect.Variable] -= effect.Value;
+        if (verbose)
             Monarch.printChange(effect.Unit, effect.Variable, false);
-        }
-        else if (effect.Operator === "*") {
-            Monarch.state[effect.Unit][effect.Variable] *= effect.Value;
+    }
+    else if (effect.Operator === "*") {
+        Monarch.state[effect.Unit][effect.Variable] *= effect.Value;
+        if (verbose)
             Monarch.printChange(effect.Unit, effect.Variable, true);
-        }
-        else if (effect.Operator === "/") {
-            Monarch.state[effect.Unit][effect.Variable] /= effect.Value;
+    }
+    else if (effect.Operator === "/") {
+        Monarch.state[effect.Unit][effect.Variable] /= effect.Value;
+        if (verbose)
             Monarch.printChange(effect.Unit, effect.Variable, false);
-        }
-        else if (effect.Operator === "=") {
-            Monarch.state[effect.Unit][effect.Variable] = effect.Value;
-        }
     }
-
-    w2popup.close();
-    for (var i = 0; i < Monarch.Factions.length; i++) {
-        Monarch.boundValues(Monarch.state[Monarch.Factions[i]]);
-    }
-    Monarch.state.Land.Colonies = Math.max(Monarch.state.Land.Colonies, 0);
-    Monarch.destroy();
-    Monarch.loadData();
-
-    if (Monarch.state.Monarch.Age > 81) {
-        Monarch.state.Monarch.GameOver = 7;
-    }
-    if (Monarch.state.Monarch.GameOver > 0) {
-        var score = (Monarch.state.Land.Balance / 1000) + Monarch.state.Monarch.GameOver * 10 + Monarch.state.Land.Diplomacy + Monarch.state.Land.Colonies * 2;
-        for (var i = 0; i < Monarch.Factions.length; i++) {
-            score += (Monarch.state[Monarch.Factions[i]].Mood + Monarch.state[Monarch.Factions[i]].Count) / 10;
-        }
-        w2popup.open({
-            title: Monarch.GameOverCauses[Monarch.state.Monarch.GameOver],
-            body: '<div style="text-align: center" >'
-                    + '<br/><img src="images/death_'
-                    + Monarch.state.Monarch.GameOver
-                    + '.jpg" alt="death illustration" /><br/><br /> '
-                    + Monarch.GameOverMessages[Monarch.state.Monarch.GameOver].replace(/#MONARCH/g, Monarch.state.Monarch.Name) 
-                    + '<h2>YOUR SCORE IS: '
-                    + Math.floor(score)
-                    + '</h2>'
-                    + '</div>',
-            width: "600pt",
-            height: "400pt",
-            overflow: 'hidden',
-            color: '#333',
-            speed: '0.3',
-            opacity: '0.8',
-            showClose: true,
-            onClose: function (event) {
-                location.reload();
-            }
-        });
+    else if (effect.Operator === "=") {
+        Monarch.state[effect.Unit][effect.Variable] = effect.Value;
     }
 };
 
+// User selected a choice
+Monarch.selectChoice = function (event_file, event_index, choice) {
+    w2popup.close();
+
+    // Do accounting
+    Monarch.resolveYear();
+
+    // Apply decision
+    var choice_var = Monarch.events[event_file][event_index].Decisions[choice];
+    $("#text_panel").append("Based on your decision: <br/>");
+    for (var i = 0; i < choice_var.Effects.length; i++) {
+        var effect = choice_var.Effects[i];
+        Monarch.applyEffect(effect, true);
+    }
+
+    // Bound values
+    for (var i = 0; i < Monarch.Factions.length; i++)
+        Monarch.boundValues(Monarch.state[Monarch.Factions[i]]);
+    Monarch.state.Land.Colonies = Math.max(Monarch.state.Land.Colonies, 0);
+
+    // Reload data
+    Monarch.destroy();
+    Monarch.loadData();
+
+    // Check age
+    if (Monarch.state.Monarch.Age > Monarch.Params.MaxAge)
+        Monarch.state.Monarch.GameOver = Monarch.GameOverCauses.indexOf("Old Age");
+    if (Monarch.state.Monarch.GameOver > 0)
+        Monarch.displayFinalScreen(score);
+};
+
+// When end turn is clicked
 Monarch.endTurn = function () {
     var event_index = Monarch.selectEvent();
     Monarch.loadPopup(event_index);
@@ -151,47 +141,46 @@ Monarch.boundValues = function (state_var) {
     state_var.Pay = Math.max(state_var.Pay, 0);
 };
 
-Monarch.choiceMade = function () {
+Monarch.resolveYear = function () {
+    // Increment year
     $("#age_span").html(++Monarch.state.Monarch.Age);
     $("#text_panel").html("<p>You are a year older, sire.</p>");
 
-    for (var i = 0; i < Monarch.Factions.length; i++) {
-        if ($("#fund_" + Monarch.Factions[i]).is(":checked")) {
-            $("#fund_" + Monarch.Factions[i]).attr("checked", false);
+    // Resolve funding
+    Monarch.Factions.forEach(function (faction) {
+        // select effects
+        var effects;
+        if ($("#fund_" + faction).is(":checked")) {
+            $("#fund_" + faction).attr("checked", false);
 
+            $("#text_panel").append("You funded " + faction + ", they thank you.</br>");
 
-            if (Monarch.Factions[i] === "Mafia") {
-                $("#text_panel").append("You fought against the Mafia, they hate you now.</br>");
-                Monarch.state[Monarch.Factions[i]].Count /= 2;
-                Monarch.state[Monarch.Factions[i]].Mood -= 10;
-            }
-            else {
-                $("#text_panel").append("You funded " + Monarch.Factions[i] + ", they thank you.</br>");
-                Monarch.state[Monarch.Factions[i]].Count *= 1.25;
-                Monarch.state[Monarch.Factions[i]].Mood += 10;
-            }
-            Monarch.state[Monarch.Factions[i]].Count = Math.floor(Monarch.state[Monarch.Factions[i]].Count);
+            effects = jQuery.merge([], Monarch.Params.Funding);
 
-            Monarch.state[Monarch.Factions[i]].Pay /= 1.5;
-
-            Monarch.state.Land.Balance -= 500;
+        } else {
+            effects = jQuery.merge([], Monarch.Params.NoFunding);
         }
-        Monarch.state[Monarch.Factions[i]].Mood -= 2;
-    }
+        // apply effects
+        effects.forEach(function (effect) {
+            if (effect.Unit === "Faction")
+                effect.Unit = faction;
+            Monarch.applyEffect(effect, false);
 
-    var money_change = Monarch.accountMoney();
-    var interest = Math.round(Monarch.state.Land.Balance / 100) * 5;
-    var money_message = "<p>The yearly interest is " + interest
-            + ". The public budget was " + money_change + ".</p>";
-    Monarch.state.Land.Balance += money_change + interest;
+        });
+    });
+
+    // Count money
+    var product = Monarch.computeProduct();
+    var interest = Math.round(Monarch.state.Land.Balance * Monarch.Params.Interest);
+    var money_message = "<p>The yearly interest is " + interest + ". The national product was " + product + ".</p>";
+    Monarch.state.Land.Balance += product + interest;
     $("#text_panel").append(money_message);
 };
 
-Monarch.accountMoney = function () {
+Monarch.computeProduct = function () {
     var money_change = 0;
-    for (var i = 0; i < Monarch.Factions.length; i++) {
-        var faction = Monarch.Factions[i];
+    Monarch.Factions.forEach(function (faction) {
         money_change += (Monarch.state[faction].Gain - Monarch.state[faction].Pay) * Monarch.state[faction].Count;
-    }
+    });
     return Math.round(money_change / 100) * 100;
 };
